@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>hire-me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style_form.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+    <p>Hire me</p>
+    <p1>Contact information</p1>    
+    
+    <table>
+        <tr>
+            <th>Phone</th>
+            <td>+380964260894</td>
+        </tr>
+        <tr>
+            <th>Adress</th>
+            <td>Kremenchuk, 73/3 Ivana Mazepy street</td>                            
+        </tr>
+    </table>
+    
+    
+    <form action="hire-me.html" method="get">
+        
+        <fieldset>
+        <legend>Contact form</legend>
+        <label for="e-mail">E-mail:<span>*</span></label>
+                <input 
+                id="e-mail" 
+                class="e-mail" 
+                type="email"             
+                required 
+                name="e-mail"                
+                placeholder="Enter your e-mail" />                      
+                <p class="error">No e-mail</p> 
+
+        <label for="phone">Phone:<span>*</span></label>
+                <input 
+                id="phone" 
+                class="e-mail" 
+                type="text"             
+                required 
+                name="phone"   
+                maxlength="13"
+                minlength="10"             
+                placeholder="Enter your phone number" />                      
+                <p class="error">No phone number</p>  
+
+        <label for="description">Description:</label>        
+        <textarea 
+                id="description" 
+                name="description"></textarea>               
+        
+        <label>Work type:
+                <select name="work-type">
+                <option></option>
+                <option value="Full time">Full time</option>
+                <option value="Part time">Part time</option>
+                <option value="Remote">Remote</option>
+                <option value="One-off project">One-off project</option>
+                </select>
+        </label>    
+            
+        <input class="submit" type="submit" value="Hire Me"/>
+        </fieldset>    
+    </form>    
+</div>
+</body>
+</html>
