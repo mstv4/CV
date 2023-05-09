@@ -14,15 +14,15 @@
 
 .main-theme {
   --color-text: #000000;
-  --background-color-block1: #86A3B4;
+  --background-color-block1: #86a3b4;
   --background-color-block2: #f0f0f0;
   --color-name1: #ffffff;
-  --color-name2: #1C2E8C;
-  --color-border: #1E1E1E;
-  --color-boxshadow: -10px 10px 0px 0px rgba(33,33,33,1),
-  -20px 20px 0px 0px rgba(33,33,33,0.7),
-  -30px 30px 0px 0px rgba(33,33,33,0.4),
-  -40px 40px 0px 0px rgba(33,33,33,0.1);
+  --color-name2: #1c2e8c;
+  --color-border: #1e1e1e;
+  --color-boxshadow: -10px 10px 0px 0px rgba(33, 33, 33, 1),
+    -20px 20px 0px 0px rgba(33, 33, 33, 0.7),
+    -30px 30px 0px 0px rgba(33, 33, 33, 0.4),
+    -40px 40px 0px 0px rgba(33, 33, 33, 0.1);
 }
 
 * {
@@ -188,7 +188,8 @@ body {
   -webkit-transition-timing-function: ease-out;
           transition-timing-function: ease-out;
 }
-.photo-1:hover {
+
+.large-click {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
   -webkit-box-shadow: var(--color-boxshadow);
@@ -267,9 +268,22 @@ body {
   font-size: 16px;
 }
 
-.textinfo {
+.textinfo,
+#repos {
   margin-top: 28px;
   max-width: 659px;
+}
+
+#repos a {
+  color: #00f;
+  text-decoration: underline;
+}
+#repos a:hover {
+  text-decoration: none;
+}
+#repos a:visited {
+  color: #005;
+  text-decoration: underline;
 }
 
 .textinfo.primary {
@@ -295,7 +309,7 @@ body {
   .block-2 {
     padding-left: 40px;
     border-left: solid 0px;
-    height: 1375px;
+    height: 1825px;
   }
   .title-header {
     -webkit-box-orient: vertical;
@@ -310,11 +324,11 @@ body {
   .textinfo {
     max-width: 310px;
   }
-  .photo-1:hover {
+  .large-click {
     -webkit-transform: none;
             transform: none;
+    translate: none;
     -webkit-box-shadow: none;
             box-shadow: none;
-    translate: none;
   }
 }/*# sourceMappingURL=style.css.map */

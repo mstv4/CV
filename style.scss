@@ -1,244 +1,256 @@
-@import 'theme';
+@import "theme";
 $fontSizeName: 40px;
 $fontSizePos: 28px;
 $margin-small: 28px;
 $margin-medium: 40px;
-$font: 'Inter', sans-serif;
+$font: "Inter", sans-serif;
 
-@mixin animation ($name, $duration, $delay) {
-    animation-name: $name;
-    animation-duration: $duration;
-    animation-delay: $delay;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+@mixin animation($name, $duration, $delay) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
 
 .main-theme {
-   --color-text: #000000;
-   --background-color-block1: #86A3B4;
-   --background-color-block2: #f0f0f0;
-   --color-name1: #ffffff;
-   --color-name2: #1C2E8C;
-   --color-border: #1E1E1E;
-   --color-boxshadow: -10px 10px 0px 0px rgba(33,33,33,1),
-   -20px 20px 0px 0px rgba(33,33,33,0.7),
-   -30px 30px 0px 0px rgba(33,33,33,0.4),
-   -40px 40px 0px 0px rgba(33,33,33,0.1);
+  --color-text: #000000;
+  --background-color-block1: #86a3b4;
+  --background-color-block2: #f0f0f0;
+  --color-name1: #ffffff;
+  --color-name2: #1c2e8c;
+  --color-border: #1e1e1e;
+  --color-boxshadow: -10px 10px 0px 0px rgba(33, 33, 33, 1),
+    -20px 20px 0px 0px rgba(33, 33, 33, 0.7),
+    -30px 30px 0px 0px rgba(33, 33, 33, 0.4),
+    -40px 40px 0px 0px rgba(33, 33, 33, 0.1);
 }
 
 * {
-    margin: 0;
+  margin: 0;
 }
 
-body  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--color-text);
-    font-family: $font;
-    font-weight: 600;
-    font-style: normal;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+  font-family: $font;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .wrapper {
-    display: grid;
-    width: 1200px;
-    height: 1667px;
-    grid-template-columns: 385px 815px;
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+  display: grid;
+  width: 1200px;
+  height: 1667px;
+  grid-template-columns: 385px 815px;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 /* Лівий блок */
 .block-1 {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--background-color-block1);
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 8px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    z-index: 1;
-    @include animation (block-1, 2s, 0s)
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color-block1);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 8px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  z-index: 1;
+  @include animation(block-1, 2s, 0s);
 }
 
 @keyframes block-1 {
-    0% {
-        transform: translateY(100%);
-        opacity: 0;
-      }
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 
-    100% {
-        transform: translateY(0%);
-        opacity: 1;
-      }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 /* Правий блок */
 .block-2 {
-    background-color: var(--background-color-block2);
-    padding-top: 30px;
-    padding-left: 55px;
-    border-left: solid 1px black;
-    opacity: 0;
-    @include animation (block-2, 2s, 0.5s)
+  background-color: var(--background-color-block2);
+  padding-top: 30px;
+  padding-left: 55px;
+  border-left: solid 1px black;
+  opacity: 0;
+  @include animation(block-2, 2s, 0.5s);
 }
 
 @keyframes block-2 {
-    0% {
-        transform: translateY(100%);
-        opacity: 0;
-      }
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 
-    100% {
-        transform: translateY(0%);
-        opacity: 1;
-      }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 /* ПІБ, лінк hire-me, позиція */
 .name-1 {
-    font-size: $fontSizeName;
-    color: var(--color-name1);
-    margin-top: 58px;
-    margin-left: $margin-medium;
+  font-size: $fontSizeName;
+  color: var(--color-name1);
+  margin-top: 58px;
+  margin-left: $margin-medium;
 }
 
 .name-2 {
-    font-size: $fontSizeName;
-    color: var(--color-name2);
-    margin-left: $margin-medium;
+  font-size: $fontSizeName;
+  color: var(--color-name2);
+  margin-left: $margin-medium;
 }
 
 .hire-me {
-    font-size: $fontSizePos;
-    margin-left: $margin-medium;
-    margin-top: 24px;
+  font-size: $fontSizePos;
+  margin-left: $margin-medium;
+  margin-top: 24px;
 }
 
 .position {
-    font-size: $fontSizePos;
-    margin-left: $margin-medium;
-    margin-top: 18px;
-    margin-bottom: $margin-medium;
+  font-size: $fontSizePos;
+  margin-left: $margin-medium;
+  margin-top: 18px;
+  margin-bottom: $margin-medium;
 }
 /* Фото */
 .photo-1 {
-    width: 385px;
-    height: 435px;
-    border-radius: 5px;
-    transition: transform 2s, box-shadow 2s, translate 2s;
-    transition-timing-function: ease-out;
-    &:hover {
-        transform: scale(1.5);
-        box-shadow: var(--color-boxshadow);
-        translate: 155px;
-    }
+  width: 385px;
+  height: 435px;
+  border-radius: 5px;
+  transition: transform 2s, box-shadow 2s, translate 2s;
+  transition-timing-function: ease-out;
+}
+
+.large-click {
+  transform: scale(1.5);
+  box-shadow: var(--color-boxshadow);
+  translate: 155px;
 }
 /* Контактні дані */
 .side-section-header {
-    font-size: 32px;
-    margin-top: $margin-medium;
-    padding-bottom: 15px;
-    margin-left: $margin-medium;
-    border-bottom: 6px solid var(--color-border);
-    width: 289px;
+  font-size: 32px;
+  margin-top: $margin-medium;
+  padding-bottom: 15px;
+  margin-left: $margin-medium;
+  border-bottom: 6px solid var(--color-border);
+  width: 289px;
 }
 /* Мови */
 .languages-list {
-    li {
-        font-size: 24px;
-        margin-top: 24px;
-        list-style-type: none
-    }
-    p {
-        font-size: 16px;
-        margin-top: 11px;
-    }
+  li {
+    font-size: 24px;
+    margin-top: 24px;
+    list-style-type: none;
+  }
+  p {
+    font-size: 16px;
+    margin-top: 11px;
+  }
 }
 /* Дизайн лінку */
 .link {
-    color: #00f;
+  color: #00f;
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+  &:visited {
+    color: #005;
     text-decoration: underline;
-    &:hover {
-        text-decoration: none;
-    }
-    &:visited {
-        color: #005;
-        text-decoration: underline;
-    }
+  }
 }
 /* Заголовки правого блоку */
 .title-header {
-    display: flex;
-    flex-direction: column;
-    font-size: 36px;
-    border-bottom: 6px solid var(--color-border);
-    width: 659px;
-    padding-bottom: $margin-small;
-    margin-top: $margin-small;
+  display: flex;
+  flex-direction: column;
+  font-size: 36px;
+  border-bottom: 6px solid var(--color-border);
+  width: 659px;
+  padding-bottom: $margin-small;
+  margin-top: $margin-small;
 }
 /* Колонки в скілах */
 .column {
-    display: grid;
-    grid-template-columns: 324px 150px;
-    margin-top: $margin-small;
-    margin-left: -15px;
-    font-size: 16px;
+  display: grid;
+  grid-template-columns: 324px 150px;
+  margin-top: $margin-small;
+  margin-left: -15px;
+  font-size: 16px;
 }
 /* Текст під заголовками */
 .info {
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
 }
 
-.textinfo {
-    margin-top: $margin-small;
-    max-width: 659px;
+.textinfo,
+#repos {
+  margin-top: $margin-small;
+  max-width: 659px;
+}
+
+#repos a {
+  color: #00f;
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+  &:visited {
+    color: #005;
+    text-decoration: underline;
+  }
 }
 
 .textinfo.primary {
-    opacity: 0.7;
-    transition: opacity 1s;
-    transition-timing-function: linear;
-    &:hover {
-        opacity: 1;
-    }
+  opacity: 0.7;
+  transition: opacity 1s;
+  transition-timing-function: linear;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 1150px) {
-    .wrapper {
-        width: 385px;
-        grid-template-columns: 385px;
-        grid-template-areas:
-        "block-1"
-        "block-2";
-    }
+  .wrapper {
+    width: 385px;
+    grid-template-columns: 385px;
+    grid-template-areas:
+      "block-1"
+      "block-2";
+  }
 
-    .block-1 {
-        height: 1445px;
-    }
+  .block-1 {
+    height: 1445px;
+  }
 
-    .block-2 {
-        padding-left: $margin-medium;
-        border-left: solid 0px;
-        height: 1375px;
-    }
+  .block-2 {
+    padding-left: $margin-medium;
+    border-left: solid 0px;
+    height: 1825px;
+  }
 
-    .title-header {
-        flex-direction: column;
-        width: 289px;
-    }
+  .title-header {
+    flex-direction: column;
+    width: 289px;
+  }
 
-    .column {
-        grid-template-columns: 160px 15px;
-    }
+  .column {
+    grid-template-columns: 160px 15px;
+  }
 
-    .textinfo {
-        max-width: 310px;
-    }
-
-    .photo-1:hover {
-        transform: none;
-        box-shadow: none;
-        translate: none;
-    }
+  .textinfo {
+    max-width: 310px;
+  }
+  .large-click {
+    transform: none;
+    translate: none;
+    box-shadow: none;
+  }
 }
