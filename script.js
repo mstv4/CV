@@ -3,7 +3,12 @@
 const zoomPhoto = document.querySelector(".photo-1");
 
 const repos = document.getElementById("repos");
-const giturl = "https://api.github.com/users/mstv4/repos";
+
+const UrlOfGit = "https://api.github.com";
+
+const UserGit = "mstv4";
+
+const TokenGit = "NEED INPUT TOKEN HERE!!!";
 
 zoomPhoto.addEventListener("click", () => {
   zoomPhoto.classList.toggle("large-click");
@@ -45,15 +50,47 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-async function getRepositories() {
-  const list = await fetch(giturl);
-  const datalist = await list.json();
-  return !datalist.length
-    ? (repos.innerHTML = "<li>No repositories found</li>")
+class WorkWithGit {
+  constructor (UrlGit, repos, token, user) {
+    this.UrlGit = UrlGit;
+    this.repos = repos;
+    this.token = token;
+    this.user = user;
+    this.url = `${this.UrlGit}/users/${this.user}/repos`;
+  }
+
+  render (datalist) {
+    return !datalist.length
+    ? (repos.innerHTML = "<li>No repositories found / or TokenGit is empty</li>")
     : datalist.forEach((item) => {
         repos.innerHTML += `<li><a href="${item.html_url}" target="_blank">${item.full_name}</a></li>`;
         repos.innerHTML += `<p>${item.description}</p>`;
         repos.innerHTML += `</br>`;
-    });
+      });
+  }
+
+  async getRepositoriesInfo() {
+    const list = await fetch(this.url);
+    const datalist = await list.json();
+    this.render(datalist);
+  }
+
+  async getRepos() {
+    try {
+      const list = await fetch(this.url, {
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
+      });
+
+      const datalist = await list.json();
+      this.render(datalist);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
-getRepositories();
+
+const apiGit = new WorkWithGit (UrlOfGit, repos, TokenGit, UserGit);
+
+apiGit.getRepos();
