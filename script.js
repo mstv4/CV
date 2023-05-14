@@ -46,14 +46,27 @@ document.addEventListener("keydown", (event) => {
 });
 
 async function getRepositories() {
-  const list = await fetch(giturl);
-  const datalist = await list.json();
-  return !datalist.length
-    ? (repos.innerHTML = "<li>No repositories found</li>")
-    : datalist.forEach((item) => {
+  try {
+    const list = await fetch(giturl);
+    const datalist = await list.json();
+
+    if (!datalist.length) {
+      repos.innerHTML = "<li>No repositories found</li>";
+    } else {
+      datalist.forEach((item) => {
         repos.innerHTML += `<li><a href="${item.html_url}" target="_blank">${item.full_name}</a></li>`;
-        repos.innerHTML += `<p>${item.description}</p>`;
-        repos.innerHTML += `</br>`;
-    });
+
+        if (item.description) {
+          repos.innerHTML += `<p>${item.description}</p>`;
+        }
+
+        repos.innerHTML += `<br>`;
+      });
+    }
+  } catch (error) {
+    console.error("Error fetching repositories", error);
+    repos.innerHTML = "<li>Error fetching repositories</li>";
+  }
 }
+
 getRepositories();
