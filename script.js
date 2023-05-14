@@ -8,7 +8,7 @@ const UrlOfGit = "https://api.github.com";
 
 const UserGit = "mstv4";
 
-const TokenGit = "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";
+const TokenGit = "INPUT TOKEN HERE!!!";
 
 zoomPhoto.addEventListener("click", () => {
   zoomPhoto.classList.toggle("large-click");
