@@ -8,7 +8,7 @@ const UrlOfGit = "https://api.github.com";
 
 const UserGit = "mstv4";
 
-const TokenGit = "NEED INPUT TOKEN HERE!!!";
+const TokenGit = "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";
 
 zoomPhoto.addEventListener("click", () => {
   zoomPhoto.classList.toggle("large-click");
@@ -60,13 +60,18 @@ class WorkWithGit {
   }
 
   render (datalist) {
-    return !datalist.length
-    ? (repos.innerHTML = "<li>No repositories found / or TokenGit is empty</li>")
-    : datalist.forEach((item) => {
+    if (!datalist.length) {
+      repos.innerHTML = "<li>No repositories found / or TokenGit is empty</li>";
+    } else {
+      datalist.forEach((item) => {
         repos.innerHTML += `<li><a href="${item.html_url}" target="_blank">${item.full_name}</a></li>`;
-        repos.innerHTML += `<p>${item.description}</p>`;
-        repos.innerHTML += `</br>`;
+  
+        if (item.description) {
+          repos.innerHTML += `<p>${item.description}</p>`;
+        }   
+        repos.innerHTML += `<br>`;
       });
+    }
   }
 
   async getRepositoriesInfo() {
