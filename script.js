@@ -8,7 +8,7 @@ const UrlOfGit = "https://api.github.com";
 
 const UserGit = "mstv4";
 
-const TokenGit = "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"; /* INPUT TOKEN HERE!!! */
+const TokenGit = ""; /* INPUT TOKEN HERE!!! */
 
 zoomPhoto.addEventListener("click", () => {
   zoomPhoto.classList.toggle("large-click");
@@ -72,12 +72,6 @@ class WorkWithGit {
         repos.innerHTML += `<br>`;
       });
     }
-  }
-
-  async getRepositoriesInfo() {
-    const list = await fetch(this.url);
-    const datalist = await list.json();
-    this.render(datalist);
   }
 
   async getRepos() {
