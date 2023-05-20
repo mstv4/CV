@@ -8,7 +8,7 @@ const UrlOfGit = "https://api.github.com";
 
 const UserGit = "mstv4";
 
-const TokenGit = "INPUT TOKEN HERE!!!";
+const TokenGit = "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"; /* INPUT TOKEN HERE!!! */
 
 zoomPhoto.addEventListener("click", () => {
   zoomPhoto.classList.toggle("large-click");
@@ -51,7 +51,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 class WorkWithGit {
-  constructor (UrlGit, repos, token, user) {
+  constructor(UrlGit, repos, token, user) {
     this.UrlGit = UrlGit;
     this.repos = repos;
     this.token = token;
@@ -59,16 +59,16 @@ class WorkWithGit {
     this.url = `${this.UrlGit}/users/${this.user}/repos`;
   }
 
-  render (datalist) {
+  render(datalist) {
     if (!datalist.length) {
       repos.innerHTML = "<li>No repositories found / or TokenGit is empty</li>";
     } else {
       datalist.forEach((item) => {
         repos.innerHTML += `<li><a href="${item.html_url}" target="_blank">${item.full_name}</a></li>`;
-  
+
         if (item.description) {
           repos.innerHTML += `<p>${item.description}</p>`;
-        }   
+        }
         repos.innerHTML += `<br>`;
       });
     }
@@ -96,6 +96,6 @@ class WorkWithGit {
   }
 }
 
-const apiGit = new WorkWithGit (UrlOfGit, repos, TokenGit, UserGit);
+const apiGit = new WorkWithGit(UrlOfGit, repos, TokenGit, UserGit);
 
 apiGit.getRepos();
